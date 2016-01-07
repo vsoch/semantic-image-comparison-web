@@ -302,4 +302,7 @@ root = $.getJSON( "data/reverseinference.json", function(root){
     }
   console.log(root.meta[0])
   $('#inference').dataTable();
-});
+})
+.error(function() { 
+    alert("error"); 
+})

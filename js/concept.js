@@ -37,9 +37,9 @@ function highlightCollection(collection_id) {
 root = $.getJSON( "data/ri_" + image_id + ".json", function(root){
 
     // Name and description
-    $("#contrast_name").text(root.contrast);
+    $("#contrast_name").text(root.concept[0]);
     $("#task_name").text(root.task);
-    $("#contrast_id").text("Cognitive Atlas Concept " + root.concept);
+    $("#contrast_id").text("Cognitive Atlas Concept " + root.concept[0]);
     $("#node_description").text(root.description);
 
     // Download Link
@@ -88,13 +88,19 @@ root = $.getJSON( "data/ri_" + image_id + ".json", function(root){
     }
   
     // If we have scores
-    if (root.ri_binary_scores){
-       $.each(root.ri_binary_scores, function(index,bscore) {
-          rscore = root.ri_range_scores[index];
-          $('#scores_body').prepend('<tr><td><a href="neurovault.html?id=' + index +'">'+ index + '</a></td><td>'+ bscore.toFixed(3) + '</td><td>'+ rscore.toFixed(3) + '</td></tr>');  
+    var scores = JSON.parse(root.scores)
+    if (scores){
+       $.each(scores, function(index,bscore) {
+          rscore = scores[index];
+          $('#scores_body').prepend('<tr><td><a href="neurovault.html?id=' + rscore.image_id +'">'+ rscore.image_id + '</a></td><td>'+ rscore["ri_distance"].toFixed(3) + '</td></tr>');  
        });
     }
 
    $('#chart').dataTable();
+
+}).error(function(){
+    $('#chart').remove();
+    $('#node_download').remove();
+    $("#scores").append("<h2>No images defined for this contrast.</h2>")
 
 });

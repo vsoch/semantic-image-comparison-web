@@ -1,3 +1,23 @@
 {
-    "image_id": 109
+    "collection": {
+        "DOI": "10.1073/pnas.1321728111",
+        "authors": "S. M. Helfinstein, T. Schonberg, E. Congdon, K. H. Karlsgodt, J. A. Mumford, F. W. Sabb, T. D. Cannon, E. D. London, R. M. Bilder and R. A. Poldrack",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "smoothing_fwhm": "5.0",
+        "subjects": 108.0,
+        "title": "Predicting risky choices from brain activity patterns",
+        "url": "http://neurovault.org/collections/34/"
+    },
+    "concept": [],
+    "contrast": "pre-cash trials minus pre-pump trials matched for risk level",
+    "description": "Contrast between trials preceding cashout trials and trials preceding pump trials in the BART (trials matched for level of risk)\r\n\r\nThis contrast is contrasting trials immediately preceding a cashout vs. trials immediately preceding a pump. However, the pre-pump condition only contains a subset of all the pre-pump trials for that participant that are matched to the risk level of that participant's pre-cashout trials. So both the pre-pump and pre-cashout regressor would include 3 trials from pump #3, 5 trials from pump #4, 2 trials from pump #5, and so on.",
+    "download": "http://neurovault.org/media/images/34/tstatsCashoutsMinusPumpMasked.nii.gz",
+    "image_id": 109,
+    "images": [
+        "http://neurovault.org/media/images/34/glass_brain_109.jpg"
+    ],
+    "scores": [],
+    "task": "balloon analogue risk task (BART)",
+    "thumbnail": "http://neurovault.org/media/images/34/glass_brain_109.jpg",
+    "url": "http://neurovault.org/images/109/"
 }

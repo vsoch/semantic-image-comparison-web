@@ -57,10 +57,15 @@ root = $.getJSON( "data/ri_" + image_id + ".json", function(root){
     // If we have scores
     if (root.scores){
        $.each(root.scores, function(index,score) {
-          $('#scores_body').prepend('<tr><td>'+ score.name + '</td><td>'+ score.ri_ranges.toFixed(3) + '</td><td>'+ score.ri_binary.toFixed(3) + '</td><td>'+ score.count_in + '</td><td>'+ score.count_out + '</td></tr>');  
+          $('#scores_body').prepend('<tr><td><a href=concept.html?id=' + score.nid  + '>'+ score.contrast + '</a></td><td>'+ score.score.toFixed(3) + '</td><td>'+ score.in_count + '</td><td>'+ score.out_count + '</td></tr>');  
        });
     }
 
    $('#chart').dataTable();
 
+}).error(function(){
+    $('#chart').remove();
+    $('#node_collection_url').remove();
+    $('#node_download').remove();
+    $("#scores").append("<h2>No image defined for this id.</h2>")
 });
