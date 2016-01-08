@@ -214,16 +214,9 @@ root = $.getJSON( "data/reverseinference.json", function(root){
            // Reverse Inference scores and counts
            if (d.meta[0].scores){
               $("#scores").removeClass("hidden");
-              $("#scores_count_in").text(d.meta[0].scores[0].count_in);
-              $("#scores_count_out").text(d.meta[0].scores[0].count_out);
-              $("#scores_binary_bayes").text(d.meta[0].scores[0].ri_binary_bayes);
-              $("#scores_binary_score_in").text(d.meta[0].scores[0].ri_binary_score_in);
-              $("#scores_binary_score_out").text(d.meta[0].scores[0].ri_binary_score_out);
-              $("#scores_binary_threshold").text(d.meta[0].scores[0].ri_binary_threshold);
-              $("#scores_range_bayes").text(d.meta[0].scores[0].ri_range_bayes);
-              $("#scores_range_score_in").text(d.meta[0].scores[0].ri_range_score_in);
-              $("#scores_range_score_out").text(d.meta[0].scores[0].ri_range_score_out);
-              $("#scores_score_binary").text(d.meta[0].scores[0].ri_score_binary);
+              $("#scores_count_in").text(d.meta[0].scores[0].in_count);
+              $("#scores_count_out").text(d.meta[0].scores[0].out_count);
+              $("#scores_reverse_inference").text(d.meta[0].scores[0].score);
               //$("#scores_score_range").text(d.meta[0].scores[0].ri_score_ranges);
            } else {
               $("#scores").addClass("hidden");
