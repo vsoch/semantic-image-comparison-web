@@ -206,7 +206,6 @@ root = $.getJSON( "data/reverseinference.json", function(root){
 
            // Concept Name
            $("#node_name").text(d.name);
-           $("#node_name_link").attr("href","concept.html?id=" + d.nid);
            
            // Always remove all collection tags
            $(".collection_tag").remove();
@@ -220,6 +219,9 @@ root = $.getJSON( "data/reverseinference.json", function(root){
 
                // We will show the images modal
                $("#node_images").removeClass("hidden");
+
+               // Only provide link if there are images
+               $("#node_name_link").attr("href","concept.html?id=" + d.nid);
                
                var collections = []
                // Add images to the modal
@@ -246,6 +248,10 @@ root = $.getJSON( "data/reverseinference.json", function(root){
                // Hide the modal, remove all images from it
                $("#node_images").addClass("hidden");
                $(".brain_map_image").remove();
+
+              // Add a link to the concept page
+              $("#node_name_link").attr("href","http://www.cognitiveatlas.org/term/id/" + d.nid);
+
            }      
 
        
