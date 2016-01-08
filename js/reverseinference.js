@@ -211,16 +211,6 @@ root = $.getJSON( "data/reverseinference.json", function(root){
            // Always remove all collection tags
            $(".collection_tag").remove();
 
-           // Reverse Inference scores and counts
-           if (d.meta[0].scores){
-              $("#scores").removeClass("hidden");
-              scores = JSON.parse(d.meta[0].scores)
-              $("#scores_count_in").text(scores.in_count);
-              $("#scores_count_out").text(scores.out_count);
-              $("#scores_reverse_inference").text(scores.score);
-           } else {
-              $("#scores").addClass("hidden");
-           }
            // Associated image set
            if (d.meta[0].images) {
 

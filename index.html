@@ -40,6 +40,11 @@
                                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"></span>all</button>
                             </a>
 
+                            <!-- About modal -->
+                            <a>
+                                <button type="button" data-toggle="modal" data-target="#about_modal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-question"></span>about</button>
+                            </a>
+
                             <!-- Download image or meta data -->                        
                             <a id="node_download" class="hidden" target="_blank">
                                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-download-alt"></span>download</button>
@@ -58,18 +63,6 @@
                 </div>
 
                 <div class="row hidden" id="scores">
-                    <table id="inference" border="1" class="dataframe table table-striped table-bordered">
-                        <thead>
-                            <th>metric</th>
-                            <th>value</th>
-                        </thead>
-                        <tbody>
-                            <tr><td>reverse inference score</td><td id="scores_reverse_inference"></td></tr>
-                            <tr><td>in group size (N)</td><td id="scores_count_in"></td></tr>
-                            <tr><td>out group size (N)</td><td id="scores_count_out"></td></tr>
-                        </tbody>
-                   </table>
-              
                 </div>
 
                 <!-- Image -->
@@ -93,6 +86,7 @@
 $("#brain_maps").stalactite(); 
 </script>
 
+<!-- Images modal-->
 <div class="modal fade" id="images_modal">
   <div class="modal-lg">
     <div class="modal-content">
@@ -117,6 +111,27 @@ $("#brain_maps").stalactite();
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<!-- About modal-->
+<div class="modal fade" id="about_modal">
+  <div class="modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">About Reverse Inference</h4>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <p><strong>What is this tree showing me?</strong> This is a tree of <a href="http://www.cognitiveatlas.org" target="_blank">Cognitive Atlas concepts</a> and brain map images from the <a href="http://www.neurovault.org">NeuroVault</a> database that have been asserted to measure them. Each blue dot (a "node") represents either a concept (in the case of a term like "risk") or an image (in the case of a number). When you click on the name of the concept or image in the panel on the right to explore further, you will see reverse inference scores for images against concept groups.</p><br>
+       <p><strong>What is reverse inference?</strong> Reverse inference is the probability of a cognitive process given a spatial pattern of brain activation. Let's take an example, "response selection." When people select a response by pushing a button in the fMRI machine, there might be some pattern of activation that we consistently see. We can calculate an average image over all the brain map images that are asserted to measure "response inhibition", and then calculate the P(cognitive process = "response inhibition") given some new brain map (a pattern of activation) that we have not seen. This probability is what we call a "reverse inference score" and we can use it in a classification context to predict if a concept label is true for a new image. When you click on a concept node, you will see these reverse inference scores for every image in the set. When you click an image node, you will see the reverse inference scores for that image against all concept nodes. We have used this "semantic image comparison" framework in <a href="https://github.com/vsoch/semantic-image-comparison" target="_blank">recent work</a> to show that there is value in annotating brain map images with cognitive concepts.</p>   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 </div><!-- close container-->
 
