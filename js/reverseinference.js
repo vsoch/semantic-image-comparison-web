@@ -214,10 +214,10 @@ root = $.getJSON( "data/reverseinference.json", function(root){
            // Reverse Inference scores and counts
            if (d.meta[0].scores){
               $("#scores").removeClass("hidden");
-              $("#scores_count_in").text(d.meta[0].scores[0].in_count);
-              $("#scores_count_out").text(d.meta[0].scores[0].out_count);
-              $("#scores_reverse_inference").text(d.meta[0].scores[0].score);
-              //$("#scores_score_range").text(d.meta[0].scores[0].ri_score_ranges);
+              scores = JSON.parse(d.meta[0].scores)
+              $("#scores_count_in").text(scores.in_count);
+              $("#scores_count_out").text(scores.out_count);
+              $("#scores_reverse_inference").text(scores.score);
            } else {
               $("#scores").addClass("hidden");
            }
